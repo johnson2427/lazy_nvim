@@ -1,15 +1,16 @@
 local M = {
   "briones-gabriel/darcula-solid.nvim",
-  lazy = false,    -- make sure we load this during startup if it is your main colorscheme
+  lazy = false, -- make sure we load this during startup if it is your main colorscheme
   priority = 1000, -- make sure to load this before all the other start plugins
+  dependencies = {
+    {
+      "rktjmp/lush.nvim",
+    },
+  },
 }
 
-M.name = "darcula-solid"
 function M.config()
-  local status_ok, _ = pcall(vim.cmd.colorscheme, M.name)
-  if not status_ok then
-    return
-  end
+  vim.cmd.colorscheme "darcula-solid"
 end
 
 return M
